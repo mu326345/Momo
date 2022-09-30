@@ -3,6 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+
+        <variable
+            name="data"
+            type="com.yuyu.momo.data.ResultItem" />
+
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -34,6 +42,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
+            android:text="@{data.e_name}"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             app:layout_constraintBottom_toTopOf="@+id/content_tv"
             app:layout_constraintStart_toEndOf="@id/title_img"
@@ -48,6 +57,7 @@
             android:ellipsize="end"
             android:maxEms="15"
             android:maxLines="2"
+            android:text="@{data.e_info}"
             app:layout_constraintBottom_toTopOf="@+id/time_tv"
             app:layout_constraintStart_toStartOf="@id/title_tv"
             app:layout_constraintTop_toBottomOf="@+id/title_tv"
@@ -61,6 +71,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="@id/content_tv"
             app:layout_constraintTop_toBottomOf="@+id/content_tv"
+            android:text="@{data.e_memo ?? @string/no_rest_data}"
             tools:text="無休館資訊" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.yuyu.momo.Application
 import com.yuyu.momo.databinding.FragmentHomeBinding
 import com.yuyu.momo.repository.DefaultRepository
@@ -18,6 +19,7 @@ import java.lang.IllegalArgumentException
 class HomeFragment : Fragment() {
 
     private lateinit var binding: FragmentHomeBinding
+    private lateinit var adapter: HomeAdapter
     private val viewModel by viewModels<HomeViewModel> {
         ProviderFactory((context?.applicationContext as Application).repository)
     }
@@ -29,7 +31,10 @@ class HomeFragment : Fragment() {
 
         binding = FragmentHomeBinding.inflate(inflater, container, false)
         binding.lifecycleOwner = viewLifecycleOwner
-//        binding.viewModel = viewModel
+
+        adapter = HomeAdapter()
+        binding.homeRecycler.adapter = adapter
+        binding.homeRecycler.layoutManager = LinearLayoutManager(requireContext())
 
         return binding.root
     }
@@ -37,9 +42,9 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel.parkData.observe(viewLifecycleOwner) {
+        viewModel.resultItem.observe(viewLifecycleOwner) {
             it?.let {
-                Log.v("QAQ", "$it")
+                adapter.submitList(it)
             }
         }
     }

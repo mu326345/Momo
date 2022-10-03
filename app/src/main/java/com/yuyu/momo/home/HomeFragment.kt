@@ -16,6 +16,7 @@ import com.yuyu.momo.MainActivity
 import com.yuyu.momo.MainViewModel
 import com.yuyu.momo.R
 import com.yuyu.momo.databinding.FragmentHomeBinding
+import com.yuyu.momo.detail1.Detail1ViewModel
 import com.yuyu.momo.repository.DefaultRepository
 import java.lang.IllegalArgumentException
 
@@ -70,11 +71,18 @@ class HomeFragment : Fragment() {
     }
 }
 
-class ProviderFactory(private val repo: DefaultRepository): ViewModelProvider.NewInstanceFactory() {
-    override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        if(modelClass.isAssignableFrom(HomeViewModel::class.java)) {
-            return HomeViewModel(repo) as T
-        }
-        throw IllegalArgumentException("Unable to construct viewModel")
-    }
+class ProviderFactory(private val repo: DefaultRepository) :
+    ViewModelProvider.NewInstanceFactory() {
+    override fun <T : ViewModel> create(modelClass: Class<T>): T =
+        with(modelClass) {
+            when {
+                isAssignableFrom(HomeViewModel::class.java) ->
+                    HomeViewModel(repo)
+
+                isAssignableFrom(Detail1ViewModel::class.java) ->
+                    Detail1ViewModel(repo)
+
+                else -> throw IllegalArgumentException("Unable to construct viewModel")
+            }
+        } as T
 }

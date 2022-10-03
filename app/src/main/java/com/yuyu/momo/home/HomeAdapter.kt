@@ -8,7 +8,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.yuyu.momo.data.ResultItem
 import com.yuyu.momo.databinding.ItemTitleBinding
 
-class HomeAdapter(private val clickListener: (resultItem: ResultItem) -> Unit) : ListAdapter<ResultItem, HomeAdapter.HomeViewHolder>(DiffCallback) {
+class HomeAdapter(private val clickListener: (resultItem: ResultItem) -> Unit) :
+    ListAdapter<ResultItem, HomeAdapter.HomeViewHolder>(DiffCallback) {
 
     class HomeViewHolder(private val binding: ItemTitleBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(data: ResultItem) {

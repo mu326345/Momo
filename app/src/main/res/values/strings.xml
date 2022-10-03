@@ -4,4 +4,5 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="no_rest_data">無休館資訊</string>
     <string name="taipei_zoo">臺北市立動物園</string>
+    <string name="no_data">沒有相關動物，換個館區試試吧</string>
 </resources>

@@ -1,5 +1,8 @@
 package com.yuyu.momo.data
 
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
+
 data class ParkData(
     val result: Result
 )
@@ -12,6 +15,7 @@ data class Result(
     val results: List<ResultItem>
 )
 
+@Parcelize
 data class ResultItem(
     val _id: Int,
     val _importdate: ImportDate,
@@ -23,10 +27,11 @@ data class ResultItem(
     val e_memo: String,
     val e_geo: String,
     val e_url: String,
-)
+) : Parcelable
 
+@Parcelize
 data class ImportDate(
     val date: String,
     val timezone_type: Int,
     val timezone: String
-)
+) : Parcelable

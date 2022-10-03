@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.yuyu.momo.detail1.Detail1ViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white">
+
+        <ImageView
+            android:id="@+id/detail_img"
+            loadImg="@{viewModel.resultItem.e_pic_url}"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:src="@color/black"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/content_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:maxLines="6"
+            android:text="@{viewModel.resultItem.e_info}"
+            app:layout_constraintTop_toBottomOf="@id/detail_img"
+            tools:text="經濟部能源局及工業技術研究院，結合臺北市立動物園的環境教育及生態保育理念，建造這一棟位於沙漠動物區入口處的酷Cool節能屋。這是一座結合空間設計、節能材料及再生能源利用的節能建築，導入童話故事的解說活動，適合全家人一起來體驗。" />
+
+        <TextView
+            android:id="@+id/rest_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:layout_constraintStart_toStartOf="@id/content_tv"
+            app:layout_constraintTop_toBottomOf="@id/content_tv"
+            app:text="@{viewModel.resultItem.e_memo}"
+            tools:text="每月第三個週一休館" />
+
+        <TextView
+            android:id="@+id/position_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:text="@{viewModel.resultItem.e_category}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@id/rest_tv"
+            app:layout_constraintTop_toBottomOf="@id/rest_tv"
+            tools:text="室內館" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

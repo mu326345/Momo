@@ -9,5 +9,18 @@
         android:id="@+id/homeFragment"
         android:name="com.yuyu.momo.home.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_homeFragment_to_detail1Fragment"
+            app:destination="@id/detail1Fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detail1Fragment"
+        android:name="com.yuyu.momo.detail1.Detail1Fragment"
+        android:label="fragment_detail1"
+        tools:layout="@layout/fragment_detail1">
+        <argument
+            android:name="itemArg"
+            app:argType="com.yuyu.momo.data.ResultItem" />
+    </fragment>
 </navigation>

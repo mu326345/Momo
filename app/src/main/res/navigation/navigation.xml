@@ -12,7 +12,8 @@
         tools:layout="@layout/fragment_home">
         <action
             android:id="@+id/action_homeFragment_to_detail1Fragment"
-            app:destination="@id/detail1Fragment" />
+            app:destination="@id/detail1Fragment"
+            app:enterAnim="@anim/nav_default_pop_enter_anim" />
     </fragment>
     <fragment
         android:id="@+id/detail1Fragment"
@@ -22,5 +23,18 @@
         <argument
             android:name="itemArg"
             app:argType="com.yuyu.momo.data.ResultItem" />
+        <action
+            android:id="@+id/action_detail1Fragment_to_animalFragment"
+            app:destination="@id/animalFragment"
+            app:enterAnim="@anim/nav_default_pop_enter_anim" />
+    </fragment>
+    <fragment
+        android:id="@+id/animalFragment"
+        android:name="com.yuyu.momo.animal.AnimalFragment"
+        android:label="fragment_animal"
+        tools:layout="@layout/fragment_animal">
+        <argument
+            android:name="animalArg"
+            app:argType="com.yuyu.momo.data.AResultItem" />
     </fragment>
 </navigation>

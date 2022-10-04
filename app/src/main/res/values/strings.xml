@@ -5,4 +5,10 @@
     <string name="no_rest_data">無休館資訊</string>
     <string name="taipei_zoo">臺北市立動物園</string>
     <string name="no_data">沒有相關動物，換個館區試試吧</string>
+    <string name="also_know">別名</string>
+    <string name="distribution">簡介</string>
+    <string name="feature">辨認方式</string>
+    <string name="behavior">行為</string>
+    <string name="last_update">最後更新：%s</string>
+    <string name="open_browser">在網頁開啟</string>
 </resources>

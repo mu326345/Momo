@@ -8,7 +8,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.yuyu.momo.data.AResultItem
 import com.yuyu.momo.databinding.ItemDetail3Binding
 
-class Detail1Adapter : ListAdapter<AResultItem, Detail1Adapter.Detail1ViewHolder>(DiffCallback) {
+class Detail1Adapter(private val clickListener: (animalItem: AResultItem) -> Unit) :
+    ListAdapter<AResultItem, Detail1Adapter.Detail1ViewHolder>(DiffCallback) {
 
     class Detail1ViewHolder(private val binding: ItemDetail3Binding) : RecyclerView.ViewHolder(binding.root){
         fun bind(data: AResultItem) {
@@ -24,6 +25,9 @@ class Detail1Adapter : ListAdapter<AResultItem, Detail1Adapter.Detail1ViewHolder
     override fun onBindViewHolder(holder: Detail1ViewHolder, position: Int) {
         val item = getItem(position)
         holder.bind(item)
+        holder.itemView.setOnClickListener {
+            clickListener(item)
+        }
     }
 
     companion object DiffCallback : DiffUtil.ItemCallback<AResultItem>() {

@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".AnimalFragment">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.yuyu.momo.animal.AnimalViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/animal_img"
+                    loadImg="@{viewModel.animalData.a_pic01_url}"
+                    android:layout_width="match_parent"
+                    android:layout_height="250dp"
+                    android:src="@color/black"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/title_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:text="@{viewModel.animalData.a_name_ch}"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/animal_img"
+                    tools:text="九穹" />
+
+                <TextView
+                    android:id="@+id/title_eng_tv"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@{viewModel.animalData.a_name_en}"
+                    app:layout_constraintEnd_toEndOf="@id/title_tv"
+                    app:layout_constraintStart_toStartOf="@id/title_tv"
+                    app:layout_constraintTop_toBottomOf="@id/title_tv"
+                    tools:text="english title" />
+
+                <TextView
+                    android:id="@+id/alsoknown_tv"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/also_know"
+                    app:layout_constraintEnd_toEndOf="@id/title_tv"
+                    app:layout_constraintStart_toStartOf="@id/title_tv"
+                    app:layout_constraintTop_toBottomOf="@id/title_eng_tv" />
+
+                <TextView
+                    android:id="@+id/alsoknown"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@{viewModel.animalData.a_alsoknown}"
+                    app:layout_constraintEnd_toEndOf="@id/title_tv"
+                    app:layout_constraintStart_toStartOf="@id/title_tv"
+                    app:layout_constraintTop_toBottomOf="@id/alsoknown_tv"
+                    tools:text="熊貓、貓熊" />
+
+                <TextView
+                    android:id="@+id/distribution_tv"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/distribution"
+                    app:layout_constraintEnd_toEndOf="@id/title_tv"
+                    app:layout_constraintStart_toStartOf="@id/title_tv"
+                    app:layout_constraintTop_toBottomOf="@id/alsoknown" />
+
+                <TextView
+                    android:id="@+id/distribution"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@{viewModel.animalData.a_distribution}"
+                    app:layout_constraintEnd_toEndOf="@id/title_tv"
+                    app:layout_constraintStart_toStartOf="@id/title_tv"
+                    app:layout_constraintTop_toBottomOf="@id/distribution_tv"
+                    tools:text="distribution......." />
+
+                <TextView
+                    android:id="@+id/feature_tv"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/feature"
+                    app:layout_constraintEnd_toEndOf="@id/title_tv"
+                    app:layout_constraintStart_toStartOf="@id/title_tv"
+                    app:layout_constraintTop_toBottomOf="@id/distribution" />
+
+                <TextView
+                    android:id="@+id/feature"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@{viewModel.animalData.a_feature}"
+                    app:layout_constraintEnd_toEndOf="@id/title_tv"
+                    app:layout_constraintStart_toStartOf="@id/title_tv"
+                    app:layout_constraintTop_toBottomOf="@id/feature_tv"
+                    tools:text="feature......." />
+
+                <TextView
+                    android:id="@+id/behavior_tv"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/behavior"
+                    app:layout_constraintEnd_toEndOf="@id/title_tv"
+                    app:layout_constraintStart_toStartOf="@id/title_tv"
+                    app:layout_constraintTop_toBottomOf="@id/feature" />
+
+                <TextView
+                    android:id="@+id/behavior"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@{viewModel.animalData.a_behavior}"
+                    app:layout_constraintEnd_toEndOf="@id/title_tv"
+                    app:layout_constraintStart_toStartOf="@id/title_tv"
+                    app:layout_constraintTop_toBottomOf="@id/behavior_tv"
+                    tools:text="behavior......" />
+
+                <TextView
+                    android:id="@+id/last_update"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:text="@{@string/last_update(viewModel.animalData.a_update)}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@id/title_tv"
+                    app:layout_constraintStart_toStartOf="@id/title_tv"
+                    app:layout_constraintTop_toBottomOf="@id/behavior"
+                    tools:text="最後更新：2014/9/4" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </ScrollView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

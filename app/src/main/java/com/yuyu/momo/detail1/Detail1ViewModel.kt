@@ -1,5 +1,6 @@
 package com.yuyu.momo.detail1
 
+import androidx.annotation.VisibleForTesting
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -16,24 +17,32 @@ class Detail1ViewModel(private val repository: IRepository) : ViewModel() {
     val animalItem: LiveData<List<AResultItem>>
         get() = _animalItem
 
-    lateinit var resultItem: ResultItem
+    var resultItem: ResultItem? = null
 
     init {
         getAnimalData()
     }
 
-    fun takeBundleData(data: ResultItem) {
+    fun setBundleData(data: ResultItem) {
         resultItem = data
     }
 
     private fun getAnimalData() {
         viewModelScope.launch(Dispatchers.IO) {
             repository.getAnimalData {
-                val item = it.result.results.filter {
-                    it.a_location == resultItem.e_name
-                }
-                _animalItem.value = item
+                _animalItem.value = filterSameAnimal(it.result.results)
             }
         }
+    }
+
+    private fun filterSameAnimal(data: List<AResultItem>): List<AResultItem> {
+        return data.filter {
+            it.a_location == resultItem?.e_name
+        }
+    }
+
+    @VisibleForTesting
+    fun testFilterSameAnimal(data: List<AResultItem>): List<AResultItem>{
+        return filterSameAnimal(data)
     }
 }

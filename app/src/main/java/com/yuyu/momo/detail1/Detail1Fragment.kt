@@ -57,7 +57,7 @@ class Detail1Fragment : Fragment() {
         binding.detailRecycler.layoutManager = LinearLayoutManager(requireContext())
 
         arguments?.getParcelable<ResultItem>("resultItem")?.also {
-            viewModel.takeBundleData(it)
+            viewModel.setBundleData(it)
             detailUri = it.e_url
         }
 

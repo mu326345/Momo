@@ -59,6 +59,7 @@ class HomeFragment : Fragment() {
         viewModel.resultItem.observe(viewLifecycleOwner) {
             it?.let {
                 adapter.submitList(it)
+                binding.progress.visibility = View.GONE
             }
         }
     }

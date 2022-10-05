@@ -1,6 +1,5 @@
 package com.yuyu.momo
 
-import com.bumptech.glide.Glide.init
 import com.google.common.truth.Truth.assertThat
 import com.yuyu.momo.data.AResultItem
 import com.yuyu.momo.data.ImportDate
